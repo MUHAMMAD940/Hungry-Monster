@@ -1,15 +1,20 @@
 //search button js
 document.getElementById('search-btn').addEventListener("click", () => {
     const inputMeal = document.getElementById('food-name').value;
-    displayMeal(inputMeal);
-  
-  })
+    const error = document.getElementById('error-msg');
+    if (inputMeal === "") {
+        error.style.display = 'block';
+    } else {
+        displayMeal(inputMeal);
+        error.style.display = 'none';
+    }
+})
 
-  //Search food js code
+//Search food js code
 const displayMeal = name => {
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${name}`)
-    .then((res) => res.json())
-    .then(data => displayFoodName(data.meals));
+        .then((res) => res.json())
+        .then(data => displayFoodName(data.meals));
 
     const displayFoodName = foods => {
         const foodsDiv = document.getElementById('foods');
@@ -22,7 +27,7 @@ const displayMeal = name => {
                     <h3>${food.strMeal}</h3>
                 </div>
             `;
-    
+
             foodDiv.innerHTML = foodInfo;
             foodsDiv.appendChild(foodDiv);
         });
@@ -30,11 +35,11 @@ const displayMeal = name => {
 };
 
 //Show food details information
-const displayFoodDetails = foodId =>{
+const displayFoodDetails = foodId => {
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${foodId}`
     fetch(url)
-    .then(res => res.json())
-    .then(data => displayRecipe(data.meals[0]));
+        .then(res => res.json())
+        .then(data => displayRecipe(data.meals[0]));
 }
 
 let displayRecipe = (data) => {
@@ -67,4 +72,3 @@ let displayRecipe = (data) => {
 
     document.body.appendChild(newDiv);
 };
-
