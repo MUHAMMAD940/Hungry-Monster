@@ -1,0 +1,59 @@
+.search-bar{
+    padding: 50px;
+    text-align: center;
+}
+
+.search-bar input{
+    width: 400px;
+    height: 20px;
+    padding: 15px;
+    font-size: 18px;
+    color: #666;
+    border-radius: 5px;
+}
+
+.search-bar button{
+    height: 55px;
+    padding: 15px;
+    background-color: orange;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 5px;
+    color: #f9f2f3;
+}
+
+.all-food{
+    border: 1px solid black;
+    width: 400px;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.all-food img{
+    width: 350px;
+}
+
+#foods{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.food-main{
+    width: 400px;
+    border: 1px solid red;
+    margin: 20px;
+}
+
+.food-main img{
+    width: 400px;
+}
+
+.text-item{
+    padding-left: 10px;
+}
+
+.text-item p{
+    font-size: 20px;
+}
