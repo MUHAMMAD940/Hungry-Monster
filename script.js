@@ -12,12 +12,13 @@ document.getElementById('search-btn').addEventListener("click", () => {
 
 //Search food js code
 const displayMeal = name => {
-    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${name}`)
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`)
         .then((res) => res.json())
         .then(data => displayFoodName(data.meals));
 
     const displayFoodName = foods => {
         const foodsDiv = document.getElementById('foods');
+        foodsDiv.innerHTML = "";
         foods.forEach(food => {
             const foodDiv = document.createElement('div');
             foodDiv.className = 'all-food';
@@ -43,23 +44,22 @@ const displayFoodDetails = foodId => {
 }
 
 let displayRecipe = (data) => {
-    document.getElementById("food-name").style.display = "fixed";
+    document.getElementById("foods").style.display = "none";
     let fullDescription = `
-    <div class="food-main">
-        <div>
+    <div id="food-main">
             <img src="${data.strMealThumb}">
-        </div>
         <div class="text-item">
             <h3>${data.strMeal}</h3>
             <p>Ingredient</p>
-            <h4>+ ${data.strMeasure1}, ${data.strIngredient1}</h4>
-            <h4>+ ${data.strMeasure2}, ${data.strIngredient2}</h4>
-            <h4>+ ${data.strMeasure3}, ${data.strIngredient3}</h4>
-            <h4>+ ${data.strMeasure4}, ${data.strIngredient4}</h4>
-            <h4>+ ${data.strMeasure5}, ${data.strIngredient5}</h4>
-            <h4>+ ${data.strMeasure6}, ${data.strIngredient6}</h4>
-            <h4>+ ${data.strMeasure7}, ${data.strIngredient7}</h4>
-            <h4>+ ${data.strMeasure8}, ${data.strIngredient8}</h4>
+            <h4>${data.strMeasure1}, ${data.strIngredient1}</h4>
+            <h4>${data.strMeasure2}, ${data.strIngredient2}</h4>
+            <h4>${data.strMeasure3}, ${data.strIngredient3}</h4>
+            <h4>${data.strMeasure4}, ${data.strIngredient4}</h4>
+            <h4>${data.strMeasure5}, ${data.strIngredient5}</h4>
+            <h4>${data.strMeasure6}, ${data.strIngredient6}</h4>
+            <h4>${data.strMeasure7}, ${data.strIngredient7}</h4>
+            <h4>${data.strMeasure8}, ${data.strIngredient8}</h4>
+            <h4>${data.strMeasure9}, ${data.strIngredient9}</h4>
         </div>
     </div>
     `;

@@ -41,13 +41,16 @@
     grid-gap: 20px;
 }
 
-.food-main{
+#food-main{
     width: 400px;
     border: 1px solid red;
     margin: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.food-main img{
+#food-main img{
     width: 400px;
 }
 
@@ -56,6 +59,7 @@
 }
 
 .text-item p{
+    color: blue;
     font-size: 20px;
 }
 
