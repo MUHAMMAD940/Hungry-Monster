@@ -1,9 +1,9 @@
-.search-bar{
+#search-bar{
     padding: 50px;
     text-align: center;
 }
 
-.search-bar input{
+#search-bar input{
     width: 400px;
     height: 20px;
     padding: 15px;
@@ -12,7 +12,7 @@
     border-radius: 5px;
 }
 
-.search-bar button{
+#search-bar button{
     height: 55px;
     padding: 15px;
     background-color: orange;

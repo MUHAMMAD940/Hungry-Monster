@@ -1,7 +1,7 @@
 //search button js
+const error = document.getElementById('error-msg');
 document.getElementById('search-btn').addEventListener("click", () => {
     const inputMeal = document.getElementById('food-name').value;
-    const error = document.getElementById('error-msg');
     if (inputMeal === "") {
         error.style.display = 'block';
     } else {
@@ -17,21 +17,27 @@ const displayMeal = name => {
         .then(data => displayFoodName(data.meals));
 
     const displayFoodName = foods => {
-        const foodsDiv = document.getElementById('foods');
-        foodsDiv.innerHTML = "";
-        foods.forEach(food => {
-            const foodDiv = document.createElement('div');
-            foodDiv.className = 'all-food';
-            const foodInfo = `
+        console.log("cfffaa");
+        if (foods != null) {
+            console.log("foods if");
+            const foodsDiv = document.getElementById('foods');
+            foodsDiv.innerHTML = "";
+            foods.forEach(food => {
+                const foodDiv = document.createElement('div');
+                foodDiv.className = 'all-food';
+                const foodInfo = `
                 <div onclick="displayFoodDetails('${food.idMeal}')"> 
                     <img src="${food.strMealThumb}">
                     <h3>${food.strMeal}</h3>
                 </div>
             `;
 
-            foodDiv.innerHTML = foodInfo;
-            foodsDiv.appendChild(foodDiv);
-        });
+                foodDiv.innerHTML = foodInfo;
+                foodsDiv.appendChild(foodDiv);
+            });
+        } else {
+            error.style.display = 'block';
+        }
     }
 };
 
@@ -45,6 +51,7 @@ const displayFoodDetails = foodId => {
 
 let displayRecipe = (data) => {
     document.getElementById("foods").style.display = "none";
+    document.getElementById('search-bar').style.display = 'none';
     let fullDescription = `
     <div id="food-main">
             <img src="${data.strMealThumb}">
